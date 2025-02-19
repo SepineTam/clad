@@ -54,6 +54,8 @@ def download_video(url, output_path, max_retries=3, timeout=30):
                 unit='iB',
                 unit_scale=True,
                 unit_divisor=1024,
+                miniters=1,
+                bar_format='{desc}: {percentage:3.0f}%|{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]'
             ) as pbar:
                 for data in response.iter_content(chunk_size=1024):
                     size = f.write(data)
